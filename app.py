@@ -24,14 +24,25 @@ def format_indian_currency(num):
     return "₹ 0.00"
 
 @st.cache_data
+@st.cache_data
 def load_data(path):
-    df = pd.read_csv(path, encoding='latin1')
-    df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+    dtype_spec = {
+        'Description': 'category',  
+        'Country': 'category',      
+        'StockCode': 'category', 
+        'Quantity': 'int32',       
+        'Price': 'float32'          
+    }
+
+    df = pd.read_csv(path, encoding='latin1', dtype=dtype_spec)
+        df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+
     df.dropna(subset=['Customer ID'], inplace=True)
-    df['Customer ID'] = df['Customer ID'].astype(int)
+    df['Customer ID'] = df['Customer ID'].astype('int32') 
     df = df[~df['Invoice'].str.startswith('C', na=False)]
     df = df[df['Quantity'] > 0]
     df['TotalPrice'] = df['Quantity'] * df['Price']
+    
     return df
 
 df = load_data('online_retail_II.zip')
