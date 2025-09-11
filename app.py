@@ -137,7 +137,7 @@ This section segments customers based on their purchasing behavior using the RFM
 """)
 
 max_date = df_filtered['InvoiceDate'].max()
-rfm_df = df_filtered.groupby('Customer ID').agg(
+rfm_df = df_filtered.groupby('Customer ID', observed=False).agg(
     Recency=('InvoiceDate', lambda date: (max_date - date.max()).days),
     Frequency=('Invoice', 'nunique'),
     Monetary=('TotalPrice', 'sum')).reset_index()
@@ -213,3 +213,4 @@ with st.expander("💡 See Market Basket Analysis (Product Associations)"):
             else:
 
                 st.warning("Not enough data to perform Market Basket Analysis.")
+
