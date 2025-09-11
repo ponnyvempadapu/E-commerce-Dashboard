@@ -35,7 +35,7 @@ def load_data(path):
     }
 
     df = pd.read_csv(path, encoding='latin1', dtype=dtype_spec)
-        df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+    df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
 
     df.dropna(subset=['Customer ID'], inplace=True)
     df['Customer ID'] = df['Customer ID'].astype('int32') 
@@ -211,4 +211,5 @@ with st.expander("💡 See Market Basket Analysis (Product Associations)"):
                 else:
                     st.warning("No significant product associations found. Try a wider date range.")
             else:
+
                 st.warning("Not enough data to perform Market Basket Analysis.")
