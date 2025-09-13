@@ -159,7 +159,7 @@ st.markdown("---")
 
 st.header("🔬 Advanced Analytics")
 
-with st.expander("🕰️ See Time Series Decomposition Analysis"):
+with st.expander("🕰 See Time Series Decomposition Analysis"):
     st.markdown("""
     This analysis breaks down the daily sales data into three components:
     - **Trend:** The underlying long-term direction of sales.
@@ -178,7 +178,7 @@ with st.expander("🕰️ See Time Series Decomposition Analysis"):
     else:
         st.warning("Not enough daily data in the selected range to perform time series decomposition.")
 
-with st.expander("💡 See Market Basket Analysis (Product Associations)"):
+with st.expander(" See Market Basket Analysis (Product Associations)"):
     st.markdown("""
     This analysis finds which products are frequently bought together. This can be used for store promotions or website recommendations.
     - **Support:** How frequently the items appear together in transactions.
@@ -213,4 +213,5 @@ with st.expander("💡 See Market Basket Analysis (Product Associations)"):
             else:
 
                 st.warning("Not enough data to perform Market Basket Analysis.")
+
 
