@@ -12,13 +12,11 @@ An interactive dashboard built with Streamlit for analyzing e-commerce data. Thi
 
 **[➡️ View the Live Deployed App Here](https-your-app-url.streamlit.app)**
 
-*(After deploying on Streamlit Community Cloud, replace the link above with your public URL)*
 
 ### **🎥 Dashboard Demo**
 
 ![Dashboard Demo](./dashboard-demo.gif)
 
-*(Create a GIF of you using the dashboard and add it to your repository with this filename)*
 
 ---
 
